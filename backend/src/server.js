@@ -17,7 +17,7 @@ const PORT = process.env.PORT;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://streamify-im6n.vercel.app",
     credentials: true, // allow frontend to send cookies
   })
 );
