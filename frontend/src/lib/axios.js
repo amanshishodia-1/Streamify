@@ -2,7 +2,7 @@ import axios from "axios";
 
 const BASE_URL =
   import.meta.env.MODE === "production"
-    ? "https://streamify-zeta.vercel.app/api"
+    ? "https://streamify-im6n.vercel.app/api"
     : "http://localhost:5000/api";
 
 export const axiosInstance = axios.create({
