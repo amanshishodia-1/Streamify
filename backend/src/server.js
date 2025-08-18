@@ -30,7 +30,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/chat", chatRoutes);
 
 //revise later
-app.get('/hello', (req, res) =>  res.json({message:"HELLO"}))
+app.get('/', (req, res) =>  res.json({message:"HELLO"}))
 
 // if (process.env.NODE_ENV === "production") {
 //   app.use(express.static(path.join(__dirname, "../frontend/dist")));
