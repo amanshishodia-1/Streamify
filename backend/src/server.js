@@ -13,11 +13,11 @@ import { connectDb } from "./lib/db.js";
 const app = express();
 const PORT = process.env.PORT;
 
- const __dirname = path.resolve();
+const __dirname = path.resolve();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: "http://localhost:5173",
     credentials: true, // allow frontend to send cookies
   })
 );
@@ -30,7 +30,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/chat", chatRoutes);
 
 //revise later
-app.get('/', (req, res) =>  res.json({message:"HELLO"}))
+app.get("/", (req, res) => res.json({ message: "HELLO" }));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
@@ -45,4 +45,4 @@ app.listen(PORT, () => {
   connectDb();
 });
 
-export default app;
+
