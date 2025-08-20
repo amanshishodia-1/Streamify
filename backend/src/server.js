@@ -13,11 +13,11 @@ import { connectDb } from "./lib/db.js";
 const app = express();
 const PORT = process.env.PORT;
 
-// const __dirname = path.resolve();
+ const __dirname = path.resolve();
 
 app.use(
   cors({
-    origin: "https://streamify-im6n.vercel.app",
+    origin: ["http://localhost:5173"],
     credentials: true, // allow frontend to send cookies
   })
 );
@@ -32,13 +32,13 @@ app.use("/api/chat", chatRoutes);
 //revise later
 app.get('/', (req, res) =>  res.json({message:"HELLO"}))
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "../frontend/dist")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
-//   });
-// }
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  });
+}
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
